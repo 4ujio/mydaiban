@@ -186,6 +186,9 @@ export default {
     souarr(data) {
       this.arr = data;
     },
+    jintianfun(data) {
+      this.arr = data;
+    },
   },
   mounted() {
     this.$bus.$on("lifun", this.yyfun);
@@ -193,6 +196,8 @@ export default {
     this.$bus.$on("index", this.allfun);
     this.$bus.$on("allarr", this.arrfun);
     this.$bus.$on("souarr", this.souarr);
+    //今天
+    this.$bus.$on("jintian", this.jintianfun);
   },
 };
 </script>

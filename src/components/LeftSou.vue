@@ -140,6 +140,25 @@ export default {
     onefun(num) {
       this.index = num;
       this.$bus.$emit("onefun", false);
+
+      if (num == 1) {
+        let data = [];
+        //获取当前日期
+        const today = new Date();
+
+        const year = today.getFullYear();
+        const month = today.getMonth() + 1; // 注意月份从 0 开始，所以需要加 1
+        const day = today.getDate();
+
+        this.twoarr.forEach((item) => {
+          for (let i = 0; i < item.data.length; i++) {
+            if (item.data[i].time == `${year}-0${month}-${day}`) {
+              data.push(item.data[i]);
+              this.$bus.$emit("jintian", data);
+            }
+          }
+        });
+      }
     },
     flags() {
       this.index = -1;
